@@ -62,15 +62,18 @@ jobs:
       env:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build and publish Stream Kinesis Docker image
+#    - name: Build and publish Stream Kinesis Docker image
+#      if: ${{ always() }}
+#      run: sbt "project kinesis" docker:publish
+#    - name: Build and publish Stream Kafka Docker image
+#      if: ${{ always() }}
+#      run: sbt "project kafka" docker:publish
+#    - name: Build and publish Stream NSQ Docker image
+#      if: ${{ always() }}
+#      run: sbt "project nsq" docker:publish
+    - name: Build and publish Aliyun DataHub Docker image
       if: ${{ always() }}
-      run: sbt "project kinesis" docker:publish
-    - name: Build and publish Stream Kafka Docker image
-      if: ${{ always() }}
-      run: sbt "project kafka" docker:publish
-    - name: Build and publish Stream NSQ Docker image
-      if: ${{ always() }}
-      run: sbt "project nsq" docker:publish
+      run: sbt "project datahub" docker:publish
 
   deploy_fs2:
     needs: test

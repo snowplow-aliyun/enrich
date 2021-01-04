@@ -123,6 +123,19 @@ lazy val kafka = project
   .enablePlugins(JavaAppPackaging, DockerPlugin)
   .dependsOn(stream)
 
+lazy val datahub = project
+  .in(file("modules/datahub"))
+  .settings(moduleName := "snowplow-stream-enrich-datahub")
+  .settings(allStreamSettings)
+  .settings(
+    packageName in Docker := "snowplow4aliyun/stream-enrich-datahub",
+  )
+  .settings(libraryDependencies ++= Seq(
+    Dependencies.Libraries.dataHubClient
+  ))
+  .enablePlugins(JavaAppPackaging, DockerPlugin)
+  .dependsOn(stream)
+
 lazy val nsq = project
   .in(file("modules/nsq"))
   .settings(moduleName := "snowplow-stream-enrich-nsq")

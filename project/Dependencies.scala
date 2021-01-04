@@ -64,6 +64,7 @@ object Dependencies {
     val gcpSdk           = "1.106.0"
     val kinesisClient    = "1.13.3"
     val kafka            = "2.2.1"
+    val dataHub          = "1.1.12-public"
     val nsqClient        = "1.2.0"
     val jackson          = "2.10.5"
     val config           = "1.3.4"
@@ -155,6 +156,7 @@ object Dependencies {
     val kinesisClient    = "com.amazonaws"                    %  "amazon-kinesis-client"             % V.kinesisClient
     val gsSdk            = "com.google.cloud"                 %  "google-cloud-storage"              % V.gcpSdk
     val kafkaClients     = "org.apache.kafka"                 %  "kafka-clients"                     % V.kafka
+    val dataHubClient    = "com.aliyun.datahub"               %  "datahub-client-library"            % V.dataHub exclude("org.slf4j", "slf4j-log4j12")
     val jacksonCbor      = "com.fasterxml.jackson.dataformat" %  "jackson-dataformat-cbor"           % V.jackson
     val config           = "com.typesafe"                     %  "config"                            % V.config
     val log4jOverSlf4j   = "org.slf4j"                        %  "log4j-over-slf4j"                  % V.slf4j
