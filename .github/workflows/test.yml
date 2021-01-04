@@ -34,8 +34,8 @@ jobs:
         PGPASSWORD: supersecret1
     - name: Run tests
       run: sbt "project common" +test
-      env:
-        OER_KEY: ${{ secrets.OER_KEY }}
+#      env:
+#        OER_KEY: ${{ secrets.OER_KEY }}
     - name: Check Scala formatting
       if: ${{ always() }}
       run: sbt scalafmtCheck
@@ -196,8 +196,8 @@ jobs:
 
     - name: Run tests
       run: sbt coverage +test coverageReport
-      env:
-        OER_KEY: ${{ secrets.OER_KEY }}
+#      env:
+#        OER_KEY: ${{ secrets.OER_KEY }}
     - name: Aggregate coverage data
       if: ${{ always() }}
       run: sbt coverageAggregate
