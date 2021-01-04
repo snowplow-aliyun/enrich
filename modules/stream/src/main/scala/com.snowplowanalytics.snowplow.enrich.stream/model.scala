@@ -123,6 +123,17 @@ object model {
       case _ => s"https://dynamodb.$region.amazonaws.com"
     })
   }
+
+  final case class AliyunDataHub(
+    aws: Option[AWSCredentials],
+    gcp: Option[GCPCredentials],
+    region: Option[String],
+    endpoint: String,
+    accessId: String,
+    accessKey: String,
+    project: String,
+    securityToken: Option[String]
+  ) extends CloudAgnosticPlatformConfig
   final case class Kafka(
     aws: Option[AWSCredentials],
     gcp: Option[GCPCredentials],
